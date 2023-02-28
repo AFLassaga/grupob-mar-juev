@@ -9,7 +9,7 @@ let anio100 = anio % 100;
 let anio400 = anio % 400;
 
 let fecha = dia + "/" + mes + "/" + anio;
-let bisiesto = false;
+let bisiesto = true;
 let fechavalida = true;
 
 /* Fecha Obtenida por Ingreso */
@@ -52,16 +52,29 @@ if ((anio4 === 0 && anio100 !== 0) || anio400 === 0) {
 
     bisiesto = true;
     console.log("es un año bisiesto");
+} else {
+
+    bisiesto = false;
 }
+
+if (dia > 29 && mes === 2)  {
+ 
+    fechavalida = false
+} 
+
 
 if (dia === 29 && mes === 2 && bisiesto)  {
  
     fechavalida = true
+} 
+
+if (dia === 29 && mes === 2 && !bisiesto){
+    fechavalida = false
 };
 
-if (dia === 31 && (mes === 1 || mes === 3 || mes === 5 || mes === 7 || mes === 8 || mes === 10 || mes === 12))  {
+if (dia === 31 && (mes === 2 || mes === 4 || mes === 6 || mes === 9 || mes === 11))  {
  
-    fechavalida = true
+    fechavalida = false
    
 };
 
